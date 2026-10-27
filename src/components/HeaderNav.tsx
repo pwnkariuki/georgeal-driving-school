@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   House, Car, Monitor, Buildings, Info, Star, Envelope,
-  List, X, WhatsappLogo, Phone, ShieldCheck, CaretDown, Clock,
+  List, X, WhatsappLogo, Phone, ShieldCheck, Clock,
 } from "@phosphor-icons/react";
 import { NAV_ITEMS, CONTACT, WHATSAPP_LINK, telLink } from "../data/sitemapData";
 import type { PageKey } from "../types";
@@ -18,7 +18,7 @@ interface Props {
   onToggleView: () => void;
 }
 
-export default function HeaderNav({ active, onNavigate, viewMode, onToggleView }: Props) {
+export default function HeaderNav({ active, onNavigate }: Props) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -159,15 +159,6 @@ export default function HeaderNav({ active, onNavigate, viewMode, onToggleView }
                     </button>
                   );
                 })}
-
-                <div className="mt-4 border-t border-slate-100 pt-4">
-                  <button
-                    onClick={() => { onToggleView(); setDrawerOpen(false); }}
-                    className="flex w-full items-center gap-2 rounded-xl px-4 py-3 text-[13px] font-semibold text-slate-600 hover:bg-slate-50"
-                  >
-                    <CaretDown size={14} /> {viewMode === "sitemap" ? "Switch to Live Site" : "View Sitemap"}
-                  </button>
-                </div>
               </div>
 
               <div className="border-t border-slate-100 p-4 space-y-2">

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Toaster } from "sonner";
 import HeaderNav from "./components/HeaderNav";
-import MobileBottomBar from "./components/MobileBottomBar";
 import PageViews from "./components/PageViews";
 import SitemapVisualizer from "./components/SitemapVisualizer";
 import Footer from "./components/Footer";
@@ -55,7 +54,7 @@ export default function App() {
         onToggleView={() => setViewMode((v) => (v === "site" ? "sitemap" : "site"))}
       />
 
-      <main className="mx-auto max-w-[1320px] px-4 py-8 pb-28 sm:px-6 md:pb-8">
+      <main className="mx-auto max-w-[1320px] px-4 py-8 pb-8 sm:px-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={`${viewMode}-${page}`}
@@ -79,7 +78,6 @@ export default function App() {
         viewMode={viewMode}
         onToggleView={() => setViewMode((v) => (v === "site" ? "sitemap" : "site"))}
       />
-      <MobileBottomBar onNavigate={navigate} />
       <ScrollToTopButton />
       <Toaster richColors position="top-right" />
       <CustomLoader show={loading} label={viewMode === "sitemap" ? "Sitemap" : LOADER_LABELS[page]} />
